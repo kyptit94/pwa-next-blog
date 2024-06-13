@@ -3,7 +3,7 @@ import {MenuInterface, MenuItem } from './menu.interface';
 
 const MenuItemComponent: React.FC<{ item: MenuItem }> = ({ item }) => {
     return (
-      <li>
+      <li className={item.childClass}>
         {item.label}
         {item.children && (
           <ul>
@@ -15,10 +15,11 @@ const MenuItemComponent: React.FC<{ item: MenuItem }> = ({ item }) => {
       </li>
     );
   };
-const Menu: React.FC<MenuInterface> = ({ className, menuItems }) => {
+const Menu: React.FC<MenuInterface> = ({ className, menuItems, childClass, parentClass }) => {
+    menuItems = menuItems.map((item: MenuItem) => ({ ...item, childClass }));
     return (
       <nav className={className}>
-        <ul>
+        <ul className={parentClass}>
           {menuItems.map((item: MenuItem) => (
             <MenuItemComponent key={item.id} item={item} />
           ))}
