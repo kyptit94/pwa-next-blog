@@ -3,4 +3,5 @@ export interface CardInterface {
     image: string;
     expert: string;
     className: string;
+    path: string;
 }
