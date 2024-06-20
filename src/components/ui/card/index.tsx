@@ -7,13 +7,15 @@ import Expert from './expert';
 export default function Card({ title, image, expert, path, className }: CardInterface) {
     return (
         <div className={className}>
-            <Link href={path}>
-                <Image image={image} />
+                <Link href={path}>
+                    <Image image={image} />
+                </Link>
                 <div className="p-6">
-                    <Title title={title} />
+                    <Link href={path}>
+                        <Title title={title} />
+                    </Link>
                     <Expert expert={expert} />
                 </div>
-            </Link>
         </div>
     );
 }
